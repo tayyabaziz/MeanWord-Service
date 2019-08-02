@@ -1,0 +1,13 @@
+{
+    "environment": "development",
+    "appConfig": {
+        "port": 3000,
+        "compression": true
+    },
+    "dbConfig": {
+        "dbLoggingEnable": false,
+        "development": {
+            "urlString": "mongodb://localhost:27017/meandict"
+        }
+    }
+}

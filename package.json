@@ -1,0 +1,42 @@
+{
+  "name": "meanword-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayyabaziz/MeanWord-Service.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "ExpressJS",
+    "MongoDB",
+    "Mongoose",
+    "RestAPI"
+  ],
+  "author": "Tayyab Aziz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tayyabaziz/MeanWord-Service/issues"
+  },
+  "homepage": "https://github.com/tayyabaziz/MeanWord-Service#readme",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.8",
+    "nodemon": "^1.19.1"
+  }
+}
