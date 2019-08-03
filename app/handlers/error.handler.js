@@ -14,6 +14,8 @@ class ErrorHandler {
       res.status(401).json({ status: 401, message: error.message })
     } else if (error instanceof Error) {
       res.status(error.statusCode).json({ status: error.statusCode, message: error.message })
+    } else {
+      res.status(500).json({ status: 500, message: 'Internal Server Error' })
     }
 
     var logString = 'Status: ' + res.statusCode + ', Message: ' + error.message

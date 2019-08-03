@@ -6,7 +6,7 @@ const WordService = new WordServiceClass()
 class WordController {
   async listAllWords (req, res) {
     try {
-      var data = await WordService.getAllWords()
+      const data = await WordService.getAllWords()
       return new ResponseHandler(data, req.method, res)
     } catch (err) {
       return new ErrorHandler(err, res)
@@ -15,7 +15,7 @@ class WordController {
 
   async readWord (req, res) {
     try {
-      var data = await WordService.getWord({ wordId: req.params.wordId })
+      const data = await WordService.getWord({ wordId: req.params.wordId })
       return new ResponseHandler(data, req.method, res)
     } catch (err) {
       return new ErrorHandler(err, res)
@@ -24,26 +24,41 @@ class WordController {
 
   async addWord (req, res) {
     try {
-      var wordData = req.body
-      var word = {
-        word: (wordData.word !== undefined) ? wordData.word : null,
-        meaning: (wordData.meaning !== undefined) ? wordData.meaning : null
+      const wordData = req.body
+      if (wordData.length === 1) {
+        const word = {
+          word: (wordData.word !== undefined) ? wordData.word : null,
+          meaning: (wordData.meaning !== undefined) ? wordData.meaning : null
+        }
+        const data = await WordService.createWord({ wordData: word })
+        return new ResponseHandler(data, req.method, res)
+      } else {
+        const words = []
+        wordData.forEach(element => {
+          const word = {
+            word: (element.word !== undefined) ? element.word : null,
+            meaning: (element.meaning !== undefined) ? element.meaning : null
+          }
+          words.push(word)
+        })
+        console.log(words.length)
+        const data = await WordService.createWord({ wordData: words })
+        return new ResponseHandler(data, req.method, res)
       }
-      var data = await WordService.createWord({ wordData: word })
-      return new ResponseHandler(data, req.method, res)
     } catch (err) {
+      console.log(err)
       return new ErrorHandler(err, res)
     }
   }
 
   async updateWord (req, res) {
     try {
-      var wordData = req.body
-      var word = {
+      const wordData = req.body
+      const word = {
         word: (wordData.word !== undefined) ? wordData.word : null,
         meaning: (wordData.meaning !== undefined) ? wordData.meaning : null
       }
-      var data = await WordService.updateWord({ wordId: req.params.wordId, wordData: word })
+      const data = await WordService.updateWord({ wordId: req.params.wordId, wordData: word })
       return new ResponseHandler(data, req.method, res)
     } catch (err) {
       return new ErrorHandler(err, res)
