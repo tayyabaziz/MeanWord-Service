@@ -1,4 +1,4 @@
-const mongodb = require('../configs/db.config')
+const mongoose = require('mongoose')
 
 class WordModel {
   constructor (Sequelize, sequelize) {
@@ -13,8 +13,8 @@ class WordModel {
         required: [true, 'Meaning must be string and is required']
       }
     }
-    var wordSchema = new mongodb.Schema(collectionField)
-    var wordModel = mongodb.model(collectionName, wordSchema)
+    var wordSchema = new mongoose.Schema(collectionField)
+    var wordModel = mongoose.model(collectionName, wordSchema)
     return wordModel
   }
 }

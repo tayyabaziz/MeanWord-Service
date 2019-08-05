@@ -6,7 +6,10 @@ const WordService = new WordServiceClass()
 class WordController {
   async listAllWords (req, res) {
     try {
-      const data = await WordService.getAllWords()
+      const page = req.query.page ? req.query.page : 1
+      const limit = req.query.limit ? req.query.limit : 10
+      const offset = (page - 1) * limit
+      const data = await WordService.getAllWords({ offset: offset, limit: limit })
       return new ResponseHandler(data, req.method, res)
     } catch (err) {
       return new ErrorHandler(err, res)

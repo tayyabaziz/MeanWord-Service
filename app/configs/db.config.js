@@ -14,4 +14,4 @@ db.once('open', function () {
   console.log('Connection has been established successfully.')
 })
 
-module.exports = mongoose
+// module.exports = mongoose

@@ -3,7 +3,7 @@ class ResponseHandler {
     var statusCode = requestMethod === 'POST' ? 201 : 200
     res.status(statusCode).json({ status: statusCode, message: data })
 
-    var logString = `Status: ${statusCode}, Message: Data Return Successfully`
+    var logString = `Status: ${statusCode}, Message: ${data.length} Data Return Successfully`
     if (res.logger) {
       res.logger.info(logString)
     } else {
