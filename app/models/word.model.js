@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 class WordModel {
-  constructor (Sequelize, sequelize) {
+  constructor () {
     const collectionName = 'words'
     const collectionField = {
       word: {
