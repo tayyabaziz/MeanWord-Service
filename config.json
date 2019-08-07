@@ -7,7 +7,7 @@
     "dbConfig": {
         "dbLoggingEnable": false,
         "development": {
-            "urlString": "mongodb://localhost:27017/meandict"
+            "urlString": "mongodb+srv://meanword:MeanWord@AtlasDB@meanword-vkghc.mongodb.net/meanword?retryWrites=true&w=majority"
         }
     }
 }
