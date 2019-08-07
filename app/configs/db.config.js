@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const config = require('../../config.json')
 const dbConfig = config.dbConfig[config.environment]
 
-mongoose.connect(dbConfig.urlString, { useNewUrlParser: true, useFindAndModify: false })
+mongoose.connect(process.env.DB || dbConfig.urlString, { useNewUrlParser: true, useFindAndModify: false })
 
 const db = mongoose.connection
 db.on('error', function (err) {
