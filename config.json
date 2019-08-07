@@ -1,7 +1,7 @@
 {
     "environment": "development",
     "appConfig": {
-        "port": 3000,
+        "port": 80,
         "compression": true
     },
     "dbConfig": {
