@@ -8,8 +8,8 @@ class WordController {
     try {
       let page = req.query.page ? req.query.page : 1
       let limit = req.query.limit ? req.query.limit : 10
-      page = parseInt(page)
-      limit = parseInt(limit)
+      page = parseInt(page, 10)
+      limit = parseInt(limit, 10)
       const offset = (page - 1) * limit
       const data = await WordService.getAllWords({ offset: offset, limit: limit })
       return new ResponseHandler(data, req.method, res)
