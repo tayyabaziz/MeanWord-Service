@@ -26,5 +26,5 @@ var routes = require('./app/routes/all.routes')
 app.use('/api', routes)
 
 app.listen(process.env.PORT || config.appConfig.port, () => {
-  console.log('Server is listening on port ' + config.appConfig.port)
+  console.log('Server is listening on port ' + process.env.PORT || config.appConfig.port)
 })
