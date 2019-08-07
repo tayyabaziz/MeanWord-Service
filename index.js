@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 
 var routes = require('./app/routes/all.routes')
 app.use('/api', routes)
-
+console.log(process.env)
 app.listen(process.env.PORT || config.appConfig.port, () => {
   console.log('Server is listening on port ' + (process.env.PORT || config.appConfig.port))
 })
