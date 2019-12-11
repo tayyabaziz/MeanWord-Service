@@ -46,12 +46,10 @@ class WordController {
           }
           words.push(word)
         })
-        console.log(words.length)
         const data = await WordService.createWord({ wordData: words })
         return new ResponseHandler(data, req.method, res)
       }
     } catch (err) {
-      console.log(err)
       return new ErrorHandler(err, res)
     }
   }
